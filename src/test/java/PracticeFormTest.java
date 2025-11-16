@@ -18,7 +18,7 @@ public class PracticeFormTest {
     }
 
     @Test
-    public void fillAllFieldsInForm() {
+    void successfulPracticeFormTest() {
         open("/automation-practice-form");
 
         $("#firstName").setValue("Ivan");
@@ -45,6 +45,8 @@ public class PracticeFormTest {
 
         $("#submit").click();
 
+        $(".modal-dialog").should(appear);
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $(".table").shouldHave(
                 text("Student Name"), text("Ivan Egorov"),
                 text("Student Email"), text("Ivan@egorov.com"),
