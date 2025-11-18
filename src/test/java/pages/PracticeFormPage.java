@@ -95,14 +95,19 @@ public class PracticeFormPage {
     }
 
     public PracticeFormPage setState(String state) {
-        stateDropdown.click();
-        $(byText(state)).shouldBe(visible, Duration.ofSeconds(5)).click();
+        $("#state").scrollIntoView(true);
+        Selenide.sleep(300);
+        $("#state").click();
+        $(byText(state)).click();
         return this;
     }
 
     public PracticeFormPage setCity(String city) {
-        cityDropdown.click();
-        $(byText(city)).shouldBe(visible, Duration.ofSeconds(5)).click();
+        $("#city").scrollIntoView(true);
+        Selenide.sleep(300);
+
+        $("#city").click();
+        $(byText(city)).click();
         return this;
     }
 
